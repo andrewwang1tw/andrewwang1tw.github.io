@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>王精顯 Andrew Wang｜企業系統整合與 AI 落地</title>
+<meta name="description" content="逾 20 年軟體開發、資料倉儲與系統整合經驗，專注於把 AI 接進企業現有的系統與資料。作品包含 SQL Server 慢查詢 AI 診斷、台股營收分析、機器學習分群等。">
+<meta property="og:title" content="王精顯 Andrew Wang｜企業系統整合與 AI 落地">
+<meta property="og:description" content="把 AI 接進企業現有的系統與資料。逾 20 年軟體開發、資料倉儲與系統整合經驗。">
+<meta property="og:image" content="assets/dbagent-report.jpg">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D6A63'/%3E%3Cpath d='M6 9l4 14 6-10 6 10 4-14' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2F5F4;
+  --surface: #FFFFFF;
+  --ink: #17232B;
+  --muted: #55646C;
+  --rule: #D3DAD8;
+  --accent: #0D6A63;
+  --accent-deep: #064A45;
+  --tint: #E2EFED;
+  --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --measure: 38rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.85;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent-deep); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+
+.wrap { width: min(72rem, 100% - 3rem); margin-inline: auto; }
+
+/* masthead */
+.masthead { border-bottom: 1px solid var(--rule); }
+.masthead .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.1rem; }
+.name { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; letter-spacing: .02em; }
+.name small { font-family: var(--sans); font-weight: 400; color: var(--muted); font-size: .95rem; margin-left: .6rem; }
+.nav { display: flex; gap: 1.6rem; font-size: .98rem; }
+.nav a { color: var(--ink); text-decoration: none; padding-block: .2rem; border-bottom: 1px solid transparent; }
+.nav a:hover { border-bottom-color: var(--accent); color: var(--ink); }
+
+/* hero */
+.hero { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.3; margin: 0 0 1.4rem; letter-spacing: .01em; }
+.hero p { max-width: var(--measure); margin: 0 0 1.2rem; color: var(--muted); }
+.hero p strong { color: var(--ink); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.btn { display: inline-block; padding: .65rem 1.4rem; border: 1px solid var(--accent); border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 1rem; line-height: 1.5; }
+.btn-solid { background: var(--accent); color: #fff; }
+.btn-solid:hover { background: var(--accent-deep); color: #fff; }
+.btn-line { background: transparent; color: var(--accent-deep); }
+.btn-line:hover { background: var(--tint); color: var(--accent-deep); }
+.shot { margin: 0; }
+.shot img { border: 1px solid var(--rule); background: var(--surface); width: 100%; }
+.shot figcaption { font-size: .9rem; color: var(--muted); margin-top: .6rem; line-height: 1.6; }
+
+/* sections */
+.section { padding-block: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
+.section > .wrap > h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.4; margin: 0 0 .6rem; }
+.lead { max-width: var(--measure); color: var(--muted); margin: 0 0 clamp(2rem, 4vw, 3rem); }
+
+/* work */
+.work { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; padding-block: clamp(1.8rem, 4vw, 2.8rem); border-top: 1px solid var(--rule); }
+.work:first-of-type { border-top: 0; padding-top: 0; }
+.work:nth-of-type(even) .work-media { order: 2; }
+.work-media { display: grid; gap: 1.2rem; }
+.work h3 { font-family: var(--serif); font-size: 1.4rem; line-height: 1.45; margin: 0 0 .8rem; }
+.work p { margin: 0 0 1rem; max-width: var(--measure); }
+.facts { margin: 0 0 1rem; display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1rem; font-size: .96rem; line-height: 1.7; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 0; padding: 0; list-style: none; font-size: .98rem; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: 11rem 1fr; gap: 1.1rem 2rem; margin: 0; }
+.skills dt { font-weight: 700; }
+.skills dd { margin: 0; color: var(--ink); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: .4rem 2rem; padding-block: 1.4rem; border-top: 1px solid var(--rule); }
+.timeline li:first-child { border-top: 0; padding-top: 0; }
+.when { color: var(--muted); font-size: .96rem; line-height: 1.9; }
+.timeline h3 { font-family: var(--serif); font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.5; }
+.timeline p { margin: 0; max-width: 44rem; }
+
+/* contact + footer */
+.contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .6rem 2rem; font-size: 1.1rem; }
+.foot { border-top: 1px solid var(--rule); padding-block: 1.6rem 2.4rem; color: var(--muted); font-size: .9rem; }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 54rem) {
+  .hero .wrap, .work { grid-template-columns: minmax(0, 1fr); }
+  .work:nth-of-type(even) .work-media { order: 0; }
+  .skills, .timeline li { grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+  .skills dd { margin-bottom: .8rem; }
+  .nav { gap: 1.1rem; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">跳到作品</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="name">王精顯<small>Andrew Wang</small></div>
+    <nav class="nav" aria-label="主選單">
+      <a href="#work">作品</a>
+      <a href="#skills">專長</a>
+      <a href="#experience">經歷</a>
+      <a href="#contact" id="nav-contact" hidden>聯絡</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">把 AI 接進企業現有的系統與資料</h1>
+      <p>我是王精顯，做了逾 20 年的應用系統開發、資料倉儲與系統整合，近年以 .NET 為主，也帶過台灣與越南的跨國 IT 團隊。現在把同樣的功夫，用在讓 AI 在真實的企業環境裡可靠地運作。</p>
+      <p><strong>適合找我的情況：</strong>公司已經有 ERP、資料庫和內部系統，想導入 AI，卻不確定怎麼接、資料怎麼安全地提供、出錯時誰來把關。</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#work">看作品</a>
+        <a class="btn btn-line" href="#contact" id="hero-contact" hidden>聯絡我</a>
+      </div>
+    </div>
+    <figure class="shot">
+      <img src="assets/dbagent-report.jpg" width="1400" height="566" alt="DB Agent 慢查詢 AI 即時監控儀表板：顯示 SQL 語句、耗時、CPU、邏輯讀取，以及 AI 產生的效能瓶頸分析與索引建議">
+      <figcaption>DB Agent：SQL Server 慢查詢的即時診斷儀表板（個人專案）</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">作品</h2>
+    <p class="lead">以下都是我自己設計並實作的專案，每一項都能實際操作或觀看示範。</p>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/dbagent-plan.jpg" width="1400" height="637" loading="lazy" alt="DB Agent 的圖形化執行計畫，點選節點可看到運算子、成本與預估資料列">
+          <figcaption>圖形化執行計畫：點選節點查看運算子、成本與預估資料列</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/dbagent-sql.jpg" width="1400" height="567" loading="lazy" alt="AI 建議的優化後 SQL 與建立索引的語句">
+          <figcaption>AI 提出的優化 SQL 與建立索引的建議</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>DB Agent：慢查詢的 AI 診斷</h3>
+        <p>即時監控 SQL Server 的效能。慢查詢出現時，把語句與執行計畫交給本地部署的 LLM，產出瓶頸分析與索引建議，並在儀表板上用圖形呈現執行計畫。模型跑在自己的機器上，資料不必送出公司。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>Vue 3、.NET 8、SignalR、Channels、SQL Server、Ollama</dd>
+          <dt>性質</dt><dd>個人專案（概念驗證）</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-next.jpg" width="1400" height="630" loading="lazy" alt="台股營收雷達（Next.js 版）：依產業與營收成長率篩選，搭配月營收與股價、EPS 圖表"></a>
+          <figcaption>Next.js 版，不需登入</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="https://vue-stock-tw-web.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-vue.jpg" width="1400" height="649" loading="lazy" alt="台股分析（Vue 版）：可依營收成長、毛利率、營益率篩選，搭配季股價與 EPS、毛利圖表"></a>
+          <figcaption>Vue 版，需 Google 帳號登入</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>台股營收與財報分析</h3>
+        <p>依產業別、營收成長率、毛利率與營業利益率篩選台股，並用圖表對照月營收、季股價與 EPS。同一個題目，我用 Next.js 與 Vue 各做了一版，資料放在 Supabase，部署在 Vercel。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>Next.js、Vue、Supabase、Vercel</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener">開啟 Next.js 版</a></li>
+          <li><a href="https://vue-stock-tw-web.vercel.app/" target="_blank" rel="noopener">開啟 Vue 版</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://ml-roe-clustering.streamlit.app/" target="_blank" rel="noopener"><img src="assets/ml-clustering.jpg" width="1400" height="641" loading="lazy" alt="台股分群（Clustering）：K-Means 各群集的財務特徵表與雷達圖，左側可設定 PCA 與分群數"></a>
+          <figcaption>K-Means 各群集的財務特徵與雷達圖</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>台股股票分群（機器學習）</h3>
+        <p>用 K-Means 與 PCA 把上市櫃公司依財務體質分群，可選產業、手動設定主成分數與分群數，並以雷達圖比較各群特徵。另一套 Python AI 金融分析應用也一併部署在 Streamlit。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>Python、機器學習（Clustering）、LangChain / LangGraph、Google Gemini、Streamlit</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://ml-roe-clustering.streamlit.app/" target="_blank" rel="noopener">開啟分群工具</a></li>
+          <li><a href="https://ml-clustering-app.streamlit.app/" target="_blank" rel="noopener">開啟第二個應用</a></li>
+          <li><a href="https://youtu.be/PGBOx7fMFh8" target="_blank" rel="noopener">觀看示範影片</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://www.youtube.com/watch?v=SanblbOU7BM" target="_blank" rel="noopener"><img src="assets/blazor.jpg" width="1175" height="584" loading="lazy" alt="Blazor WASM 搭配 ASP.NET Core Web API 的主從式範例：左側編輯產品與上傳圖片，右側為產品清單"></a>
+          <figcaption>主從式範例：編輯產品、上傳圖片，並即時更新清單</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Blazor WASM 與 Web API</h3>
+        <p>前端用 Blazor WebAssembly，後端是 ASP.NET Core Web API，包含 JWT 驗證，以及經由 EF Core 把上傳的圖片存進資料庫。這是我用來把 .NET 全端寫法整理清楚的完整範例。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>Blazor WASM、ASP.NET Core Web API、JWT、EF Core、MS SQL</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://www.youtube.com/watch?v=SanblbOU7BM" target="_blank" rel="noopener">示範影片一</a></li>
+          <li><a href="https://youtu.be/6TH3Klkapfg" target="_blank" rel="noopener">示範影片二</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://youtu.be/6wn2Qa8JGuc" target="_blank" rel="noopener"><img src="assets/golf.jpg" width="690" height="390" loading="lazy" alt="Golf GPS Scorecard 在 Google Play 的商店頁面與應用程式截圖"></a>
+          <figcaption>Golf GPS Scorecard 的 Google Play 頁面</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Golf GPS Scorecard（Android／iOS）</h3>
+        <p>2013 至 2018 年間獨立開發的高爾夫 GPS 計分手機應用，結合地圖與計分功能，已上架 Google Play。從需求、設計到上架都是自己完成。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>Java、Android SDK、SQLite、Google Map SDK、Objective-C（iOS）</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://youtu.be/6wn2Qa8JGuc" target="_blank" rel="noopener">示範影片一</a></li>
+          <li><a href="https://youtu.be/-y-pC5m5AGI" target="_blank" rel="noopener">示範影片二</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <h2 id="skills-title">專長</h2>
+    <p class="lead">主力在 .NET 與資料，近一兩年把 AI 應用接進來。</p>
+    <dl class="skills">
+      <dt>後端與系統整合</dt>
+      <dd>C#、ASP.NET Core（MVC、Web API、BFF 架構）、Blazor、EF Core；VB.NET、Java、Python</dd>
+      <dt>資料與商業智慧</dt>
+      <dd>SQL Server、Oracle、PostgreSQL、Sybase、DB2；資料倉儲、ETL、維度建模、BI 報表；索引與預存程序調校</dd>
+      <dt>AI 應用</dt>
+      <dd>Ollama 本地模型、Google Gemini、LangChain / LangGraph、RAG 知識庫、自建 .NET MCP 伺服器</dd>
+      <dt>前端</dt>
+      <dd>Vue 3、React 與 Next.js、Razor、jQuery、JavaScript</dd>
+      <dt>部署與工具</dt>
+      <dd>Docker、Git 與 GitHub、Vercel、Supabase、AWS、Streamlit</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="wrap">
+    <h2 id="exp-title">經歷</h2>
+    <p class="lead">從資料倉儲、ERP 整合到 AI 應用，一路都在把系統接起來。</p>
+    <ol class="timeline">
+      <li>
+        <div class="when">2025 年 12 月至 2026 年 11 月</div>
+        <div><h3>德誼數位科技</h3>
+        <p>企業內部系統的新功能開發與維運，採 ASP.NET Core MVC 搭配 Controller API（BFF 架構），資料庫為 Oracle 與 SQL Server；並做了 AI 對帳自動化的概念驗證。</p></div>
+      </li>
+      <li>
+        <div class="when">2025 年 5 月至 8 月</div>
+        <div><h3>全渠運購（跨境電商 CWOW）</h3>
+        <p>調校電商後端的資料庫索引、撰寫 PostgreSQL 預存程序；另以 Ollama 與 Discord Bot 建立 RAG 知識庫。</p></div>
+      </li>
+      <li>
+        <div class="when">2024 年 11 月至 2025 年 5 月</div>
+        <div><h3>華威數位財金（永豐金信託專案）</h3>
+        <p>金融業 Web 系統開發，使用 ASP.NET WebForm、SQL Server 預存程序與 Crystal Report。</p></div>
+      </li>
+      <li>
+        <div class="when">2021 年至 2024 年</div>
+        <div><h3>獨立開發與技術研究</h3>
+        <p>完成 Blazor WASM 與 Web API 的完整範例，包含 JWT 驗證、圖片上傳與 EF Core 存取資料庫。</p></div>
+      </li>
+      <li>
+        <div class="when">2018 年 5 月至 2021 年 4 月</div>
+        <div><h3>隆輝安全帽：IT 資深經理</h3>
+        <p>帶領台灣與越南的跨國 IT 團隊。建置商業智慧網站，整合兩地工單、越南進銷存與兩套 ERP 的資料，讓管理層看到完整的生產與銷售數據；另完成外銷電商網站、模具與模治具管理、設計工程變更（ECR／ECN）、客戶分群與產品關聯分析，以及台越兩地資料庫的同步與備份。</p></div>
+      </li>
+      <li>
+        <div class="when">2013 年 5 月至 2018 年 4 月</div>
+        <div><h3>獨立開發行動應用</h3>
+        <p>開發 Android 與 iOS 應用，包含 Golf GPS Scorecard。</p></div>
+      </li>
+      <li>
+        <div class="when">2005 年 5 月至 2013 年 4 月</div>
+        <div><h3>南山人壽</h3>
+        <p>保險業務員績效系統（Java、Struts、Hibernate、Sybase、WebSphere），以及資料倉儲 ETL（DataStage、Cognos）。</p></div>
+      </li>
+      <li>
+        <div class="when">2003 年 2 月至 2005 年 3 月</div>
+        <div><h3>東森得易購</h3>
+        <p>以專案經理身分帶領團隊與廠商，完成資料倉儲建置，涵蓋軟硬體架構、需求分析、Staging Area、維度建模與 ETL 開發。</p></div>
+      </li>
+      <li>
+        <div class="when">2001 年 2 月至 2003 年 3 月</div>
+        <div><h3>敦陽科技</h3>
+        <p>參與政府電子公文交換中心與電子公文閘道系統，並負責 Oracle 資料庫的 Tablespace 重整。</p></div>
+      </li>
+    </ol>
+    <p class="lead" style="margin-top:2rem;margin-bottom:0">學歷：國立政治大學 資訊管理研究所碩士；大同大學學士。</p>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title" hidden>
+  <div class="wrap">
+    <h2 id="contact-title">聯絡</h2>
+    <p class="lead">想聊聊系統整合或 AI 導入的問題，歡迎直接來信。</p>
+    <ul class="contact-list" id="contact-list"></ul>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">© 2026 王精顯 Andrew Wang</div>
+</footer>
+
+<script>
+  // 在這裡填入聯絡方式；留空的項目不會顯示，全部留空則整個聯絡區塊隱藏。
+  const CONTACT = {
+    email: "",      // 例如 "you@example.com"
+    linkedin: "",   // 例如 "https://www.linkedin.com/in/你的帳號"
+    github: ""      // 例如 "https://github.com/你的帳號"
+  };
+
+  (function () {
+    const items = [];
+    if (CONTACT.email) items.push(['Email', 'mailto:' + CONTACT.email, CONTACT.email]);
+    if (CONTACT.linkedin) items.push(['LinkedIn', CONTACT.linkedin, 'LinkedIn']);
+    if (CONTACT.github) items.push(['GitHub', CONTACT.github, 'GitHub']);
+    if (!items.length) return;
+    const list = document.getElementById('contact-list');
+    items.forEach(function (it) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = it[1]; a.textContent = it[2];
+      if (it[1].indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+      li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById('contact').hidden = false;
+    document.getElementById('nav-contact').hidden = false;
+    document.getElementById('hero-contact').hidden = false;
+  })();
+</script>
+</body>
+</html>
