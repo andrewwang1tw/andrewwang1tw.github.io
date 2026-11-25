@@ -7,7 +7,7 @@
 <meta name="description" content="逾 20 年軟體開發、資料倉儲與系統整合經驗，專注於把 AI 接進企業現有的系統與資料。作品包含 SQL Server 慢查詢 AI 診斷、台股營收分析、機器學習分群等。">
 <meta property="og:title" content="王精顯 Andrew Wang｜企業系統整合與 AI 落地">
 <meta property="og:description" content="把 AI 接進企業現有的系統與資料。逾 20 年軟體開發、資料倉儲與系統整合經驗。">
-<meta property="og:image" content="https://andrewwang1tw.github.io/assets/dbagent-report.jpg">
+<meta property="og:image" content="assets/dbagent-report.jpg">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D6A63'/%3E%3Cpath d='M6 9l4 14 6-10 6 10 4-14' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,6 +121,7 @@ a:hover { color: var(--accent); }
     <div class="name">王精顯<small>Andrew Wang</small></div>
     <nav class="nav" aria-label="主選單">
       <a href="#work">作品</a>
+      <a href="#enterprise">企業專案</a>
       <a href="#skills">專長</a>
       <a href="#experience">經歷</a>
       <a href="#contact" id="nav-contact" hidden>聯絡</a>
@@ -260,6 +261,67 @@ a:hover { color: var(--accent); }
   </div>
 </section>
 
+<section class="section" id="enterprise" aria-labelledby="ent-title">
+  <div class="wrap">
+    <h2 id="ent-title">企業系統專案</h2>
+    <p class="lead">2018 至 2021 年在隆輝安全帽期間，我負責分析、設計與開發的系統，涵蓋台灣與越南兩地。畫面僅作示意，數據已模糊處理。</p>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-bi.jpg" width="750" height="391" loading="lazy" alt="商業智慧網站：以儀表圖、圓餅圖與長條圖呈現累計年增與銷售數據，表格數據已模糊處理">
+          <figcaption>商業智慧網站（表格數據已模糊處理）</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>商業智慧網站（BI Web）</h3>
+        <p>整合台灣與越南兩地的工單、越南進銷存系統，以及艾一與天心兩套 ERP 的資料，讓公司高層能在同一個畫面看到整合的生產與銷售數據。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>ASP.NET Core MVC、JavaScript、AJAX、Google Chart、jQuery、MS SQL</dd>
+          <dt>資料來源</dt><dd>艾一 ERP、天心 ERP、越南進銷存、兩地工單</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-zeus2d.jpg" width="628" height="586" loading="lazy" alt="外銷電商網站 Zeus2D：可依設計狀態、製造類型、年份、顏色、款式與設計師篩選安全帽貼紙設計，並加入購物車">
+          <figcaption>外銷電商網站：依多種條件篩選設計並加入購物車</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>外銷電商網站</h3>
+        <p>提供海外客戶瀏覽安全帽貼紙設計、依款式、年份、顏色與設計師等條件篩選，並加入購物車訂購；後端串接公司的 ERP 資料。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>ASP.NET Core MVC、EF Core、JavaScript、AJAX、jQuery、MS SQL</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-mold-form.jpg" width="876" height="484" loading="lazy" alt="模具管理系統的 WinForm 操作介面，右側為列印預覽">
+          <figcaption>WinForm 操作介面與列印預覽</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/ent-mold-card.jpg" width="516" height="301" loading="lazy" alt="系統產出的模具履歷卡報表">
+          <figcaption>系統產出的模具履歷卡</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>模具與模治具管理系統</h3>
+        <p>管理模具與治具的履歷、狀態與相關文件，並能直接列印履歷卡等報表。同一時期也完成設計工程變更系統（ECR／ECN），讓變更申請有一致的流程可循。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>WinForm、WebForm、VB.NET、MS SQL</dd>
+        </dl>
+        <p>同期另完成：產品關聯性分析（association rule mining）與客戶分群、台灣與越南兩地資料庫的同步與備份。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="section" id="skills" aria-labelledby="skills-title">
   <div class="wrap">
     <h2 id="skills-title">專長</h2>
@@ -350,9 +412,9 @@ a:hover { color: var(--accent); }
 <script>
   // 在這裡填入聯絡方式；留空的項目不會顯示，全部留空則整個聯絡區塊隱藏。
   const CONTACT = {
-    email: "AndrewWang1TW@gmail.com",      // 例如 "you@example.com"
-    linkedin: "https://www.linkedin.com/in/andrew-wang-19ba0782/",   // 例如 "https://www.linkedin.com/in/你的帳號"
-    github: "https://github.com/andrewwang1tw"      // 例如 "https://github.com/你的帳號"
+    email: "AndrewWang1TW@gmail.com",
+    linkedin: "",   // 例如 "https://www.linkedin.com/in/你的帳號"
+    github: "https://github.com/andrewwang1tw"
   };
 
   (function () {
