@@ -177,6 +177,32 @@ a:hover { color: var(--accent); }
     <article class="work">
       <div class="work-media">
         <figure class="shot">
+          <img src="assets/aoi-arch.jpg" width="1073" height="730" loading="lazy" alt="AOI 整合架構圖：相機與檢測設備送出影像，經 ASP.NET Core Web API 與 Python 推論服務處理，結果可回寫 SQL Server、電子看板與 MES">
+          <figcaption>目標架構：影像進入 Web API，轉給 Python 推論服務，結果再送往資料庫、看板與 MES</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/aoi-result.jpg" width="1096" height="720" loading="lazy" alt="左為輸入的測試影像，右為推論結果：以紅框與橘框標示偵測到的公車與行人，並顯示 status=NG 與信心分數">
+          <figcaption>輸入影像與推論結果（Ultralytics 官方範例圖）：信心分數 0.5 以上為紅框，以下為橘框</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/aoi-api.jpg" width="1013" height="420" loading="lazy" alt="呼叫 Web API 後回傳的 JSON，包含檢測編號、判定結果、模型版本、推論耗時與每個偵測物件的類別、分數和座標">
+          <figcaption>Web API 回傳的 JSON：判定結果、推論耗時，以及每個物件的類別、分數與座標</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>AOI 影像檢測整合 POC</h3>
+        <p>驗證「取像程式送出影像、ASP.NET Core Web API 接收、Python 推論服務判讀、結果回傳」這條流程。推論服務以 YOLOv8 為基礎，回傳每個物件的類別、信心分數與座標，Web API 再依門檻給出 NG 或 OK 的判定，並以 JSON 輸出，方便接上資料庫、電子看板或 MES。本機測試的單張推論約 40 至 70 毫秒。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>ASP.NET Core Web API、Python（FastAPI）、YOLOv8n</dd>
+          <dt>性質</dt><dd>概念驗證。使用通用的預訓練模型與公開範例圖，尚未使用實際產線的瑕疵影像；判定規則為示範用</dd>
+          <dt>下一步</dt><dd>以 Docker Compose 容器化部署，並串接 SQL Server、電子看板與 MES</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
           <a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-next.jpg" width="1400" height="630" loading="lazy" alt="台股營收雷達（Next.js 版）：依產業與營收成長率篩選，搭配月營收與股價、EPS 圖表"></a>
           <figcaption>Next.js 版，不需登入</figcaption>
         </figure>
@@ -349,7 +375,7 @@ a:hover { color: var(--accent); }
       <li>
         <div class="when">2025 年 12 月至 2026 年 11 月</div>
         <div><h3>德誼數位科技</h3>
-        <p>企業內部系統的新功能開發與維運，採 ASP.NET Core MVC 搭配 Controller API（BFF 架構），資料庫為 Oracle 與 SQL Server。</p></div>
+        <p>企業內部系統的新功能開發與維運，採 ASP.NET Core MVC 搭配 Controller API（BFF 架構），資料庫為 Oracle 與 SQL Server；並做了 AI 對帳自動化的概念驗證。</p></div>
       </li>
       <li>
         <div class="when">2025 年 5 月至 8 月</div>
