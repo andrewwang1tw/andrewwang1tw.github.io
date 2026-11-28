@@ -203,6 +203,32 @@ a:hover { color: var(--accent); }
     <article class="work">
       <div class="work-media">
         <figure class="shot">
+          <img src="assets/solar-dashboard.jpg" width="1595" height="771" loading="lazy" alt="左為系統架構圖：太陽能設備經 MQTT 送到 ASP.NET Core 服務，再由 SignalR 即時推播到儀表板；右為即時監控儀表板，顯示當前總功率、今日發電量、日照強度與發電功率趨勢圖">
+          <figcaption>左：系統架構。右：即時監控儀表板，數值與趨勢圖隨資料即時更新</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/solar-publisher.jpg" width="1271" height="360" loading="lazy" alt="模擬設備程式每隔數秒透過 MQTT 發送逆變器的總功率、今日發電量與日照強度">
+          <figcaption>模擬設備端：每隔數秒透過 MQTT 發送逆變器數據</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/solar-subscriber.jpg" width="1271" height="457" loading="lazy" alt="ASP.NET Core 服務收到 MQTT 訊息後，以 EF Core 把資料寫入資料庫的執行紀錄">
+          <figcaption>伺服端：收到 MQTT 訊息後，以 EF Core 寫入資料庫</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>太陽能案場即時監控 POC</h3>
+        <p>模擬太陽能逆變器每隔數秒發送發電數據（總功率、今日發電量、日照強度）。ASP.NET Core 服務訂閱 MQTT 訊息並寫入資料庫，再即時推送到網頁儀表板，同步顯示當前功率、今日發電量與發電功率趨勢。這是把工業設備資料接進企業系統的一個完整示範。</p>
+        <dl class="facts">
+          <dt>技術</dt><dd>ASP.NET Core、MQTT、SignalR、EF Core、SQL Server、Vue 3</dd>
+          <dt>性質</dt><dd>概念驗證。設備端以程式模擬，尚未連接實際的逆變器或 PLC</dd>
+          <dt>下一步</dt><dd>歷史資料查詢，並接上實際設備</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
           <a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-next.jpg" width="1400" height="630" loading="lazy" alt="台股營收雷達（Next.js 版）：依產業與營收成長率篩選，搭配月營收與股價、EPS 圖表"></a>
           <figcaption>Next.js 版，不需登入</figcaption>
         </figure>
@@ -375,7 +401,7 @@ a:hover { color: var(--accent); }
       <li>
         <div class="when">2025 年 12 月至 2026 年 11 月</div>
         <div><h3>德誼數位科技</h3>
-        <p>企業內部系統的新功能開發與維運，採 ASP.NET Core MVC 搭配 Controller API（BFF 架構），資料庫為 Oracle 與 SQL Server。</p></div>
+        <p>企業內部系統的新功能開發與維運，採 ASP.NET Core MVC 搭配 Controller API（BFF 架構），資料庫為 Oracle 與 SQL Server；並做了 AI 對帳自動化的概念驗證。</p></div>
       </li>
       <li>
         <div class="when">2025 年 5 月至 8 月</div>
