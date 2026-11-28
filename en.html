@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew Wang (王精顯) | Enterprise systems integration, data and AI applications</title>
+<meta name="description" content="20+ years in software development, data warehousing and systems integration, now connecting LLMs and machine learning to real systems. Projects include AI diagnosis of slow SQL queries, Taiwan stock analysis and machine-learning clustering.">
+<meta property="og:title" content="Andrew Wang (王精顯) | Enterprise systems integration, data and AI applications">
+<meta property="og:description" content="Enterprise systems and data integration, now with AI. 20+ years in software development, data warehousing and systems integration.">
+<meta property="og:image" content="https://andrewwang1tw.github.io/assets/dbagent-report.jpg">
+<meta property="og:locale" content="en_US">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://andrewwang1tw.github.io/">
+<link rel="alternate" hreflang="en" href="https://andrewwang1tw.github.io/en.html">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D6A63'/%3E%3Cpath d='M6 9l4 14 6-10 6 10 4-14' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif:wght@700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2F5F4;
+  --surface: #FFFFFF;
+  --ink: #17232B;
+  --muted: #55646C;
+  --rule: #D3DAD8;
+  --accent: #0D6A63;
+  --accent-deep: #064A45;
+  --tint: #E2EFED;
+  --serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --measure: 38rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.85;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--accent-deep); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+
+.wrap { width: min(72rem, 100% - 3rem); margin-inline: auto; }
+
+/* masthead */
+.masthead { border-bottom: 1px solid var(--rule); }
+.masthead .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 2rem; padding-block: 1.1rem; }
+.name { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; letter-spacing: .02em; }
+.name small { font-family: var(--sans); font-weight: 400; color: var(--muted); font-size: .95rem; margin-left: .6rem; }
+.nav { display: flex; gap: 1.6rem; font-size: .98rem; }
+.nav a { color: var(--ink); text-decoration: none; padding-block: .2rem; border-bottom: 1px solid transparent; }
+.nav a:hover { border-bottom-color: var(--accent); color: var(--ink); }
+
+/* hero */
+.hero { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.3; margin: 0 0 1.4rem; letter-spacing: .01em; }
+.hero p { max-width: var(--measure); margin: 0 0 1.2rem; color: var(--muted); }
+.hero p strong { color: var(--ink); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.btn { display: inline-block; padding: .65rem 1.4rem; border: 1px solid var(--accent); border-radius: 3px; font-weight: 500; text-decoration: none; font-size: 1rem; line-height: 1.5; }
+.btn-solid { background: var(--accent); color: #fff; }
+.btn-solid:hover { background: var(--accent-deep); color: #fff; }
+.btn-line { background: transparent; color: var(--accent-deep); }
+.btn-line:hover { background: var(--tint); color: var(--accent-deep); }
+.shot { margin: 0; }
+.shot img { border: 1px solid var(--rule); background: var(--surface); width: 100%; }
+.shot figcaption { font-size: .9rem; color: var(--muted); margin-top: .6rem; line-height: 1.6; }
+
+/* sections */
+.section { padding-block: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
+.section > .wrap > h2 { font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 1.9rem); line-height: 1.4; margin: 0 0 .6rem; }
+.lead { max-width: var(--measure); color: var(--muted); margin: 0 0 clamp(2rem, 4vw, 3rem); }
+
+/* work */
+.work { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; padding-block: clamp(1.8rem, 4vw, 2.8rem); border-top: 1px solid var(--rule); }
+.work:first-of-type { border-top: 0; padding-top: 0; }
+.work:nth-of-type(even) .work-media { order: 2; }
+.work-media { display: grid; gap: 1.2rem; }
+.work h3 { font-family: var(--serif); font-size: 1.4rem; line-height: 1.45; margin: 0 0 .8rem; }
+.work p { margin: 0 0 1rem; max-width: var(--measure); }
+.facts { margin: 0 0 1rem; display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1rem; font-size: .96rem; line-height: 1.7; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 0; padding: 0; list-style: none; font-size: .98rem; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: 11rem 1fr; gap: 1.1rem 2rem; margin: 0; }
+.skills dt { font-weight: 700; }
+.skills dd { margin: 0; color: var(--ink); }
+
+/* timeline */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: .4rem 2rem; padding-block: 1.4rem; border-top: 1px solid var(--rule); }
+.timeline li:first-child { border-top: 0; padding-top: 0; }
+.when { color: var(--muted); font-size: .96rem; line-height: 1.9; }
+.timeline h3 { font-family: var(--serif); font-size: 1.15rem; margin: 0 0 .3rem; line-height: 1.5; }
+.timeline p { margin: 0; max-width: 44rem; }
+
+/* contact + footer */
+.contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .6rem 2rem; font-size: 1.1rem; }
+.foot { border-top: 1px solid var(--rule); padding-block: 1.6rem 2.4rem; color: var(--muted); font-size: .9rem; }
+
+[hidden] { display: none !important; }
+
+@media (max-width: 54rem) {
+  .hero .wrap, .work { grid-template-columns: minmax(0, 1fr); }
+  .work:nth-of-type(even) .work-media { order: 0; }
+  .skills, .timeline li { grid-template-columns: minmax(0, 1fr); gap: .3rem; }
+  .skills dd { margin-bottom: .8rem; }
+  .nav { gap: 1.1rem; }
+}
+
+/* English overrides */
+:root { --serif: "Noto Serif", "Noto Serif TC", Georgia, serif; --sans: "Noto Sans", "Noto Sans TC", system-ui, sans-serif; --measure: 40rem; }
+body { line-height: 1.7; }
+.hero h1 { line-height: 1.22; letter-spacing: 0; }
+.name small { letter-spacing: 0; }
+.skills, .timeline li { grid-template-columns: 12rem 1fr; }
+@media (max-width: 54rem) { .skills, .timeline li { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="name">Andrew Wang<small>王精顯</small></div>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#enterprise">Enterprise projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" id="nav-contact" hidden>Contact</a>
+      <a href="./" hreflang="zh-Hant-TW" lang="zh-Hant-TW">中文</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Enterprise systems and data integration, now with AI</h1>
+      <p>I’m Andrew Wang. I’ve spent more than 20 years in application development, data warehousing and systems integration, mostly on .NET in recent years, and I’ve led a cross-border IT team across Taiwan and Vietnam. Over the past two years I’ve started connecting LLMs, local models and machine learning to real systems. The projects below are all things I built myself.</p>
+      <p><strong>What I’m good at:</strong> integrating new features and AI applications into existing .NET, database and ERP environments, and handling the practical details of data, permissions and deployment. My strength is not the models themselves but connecting them to the systems a company already runs.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <a class="btn btn-line" href="#contact" id="hero-contact" hidden>Get in touch</a>
+      </div>
+    </div>
+    <figure class="shot">
+      <img src="assets/dbagent-report.jpg" width="1400" height="566" alt="DB Agent, a real-time slow-query dashboard: SQL statement, elapsed time, CPU and logical reads, plus an AI-generated bottleneck analysis and index suggestions">
+      <figcaption>DB Agent: a real-time diagnosis dashboard for slow SQL Server queries (personal project)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">Work</h2>
+    <p class="lead">Everything here I designed and built myself. Each project can be tried or watched in action.</p>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/dbagent-plan.jpg" width="1400" height="637" loading="lazy" alt="DB Agent’s graphical execution plan; clicking a node shows the operator, cost and estimated rows">
+          <figcaption>Graphical execution plan: click a node to see the operator, cost and estimated rows</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/dbagent-sql.jpg" width="1400" height="567" loading="lazy" alt="The optimized SQL and the CREATE INDEX statement suggested by the AI">
+          <figcaption>The optimized SQL and index suggestion proposed by the AI</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>DB Agent: AI diagnosis for slow queries</h3>
+        <p>Monitors SQL Server performance in real time. When a slow query shows up, the statement and its execution plan go to a locally hosted LLM, which returns a bottleneck analysis and index suggestions, and the dashboard draws the execution plan graphically. The model runs on my own machine, so no data has to leave the company.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>Vue 3, .NET 8, SignalR, Channels, SQL Server, Ollama</dd>
+          <dt>Status</dt><dd>Personal project (proof of concept)</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/aoi-arch.jpg" width="1073" height="730" loading="lazy" alt="AOI integration architecture: cameras and inspection equipment send images through an ASP.NET Core Web API and a Python inference service; results can go to SQL Server, signboards and an MES">
+          <figcaption>Target architecture: images enter the Web API, go to the Python inference service, and results continue to the database, signboards and MES</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/aoi-result.jpg" width="1096" height="720" loading="lazy" alt="Left: the input test image. Right: the inference result, with red and orange boxes around the detected bus and people and status=NG with confidence scores">
+          <figcaption>Input image and inference result (official Ultralytics sample image): boxes at confidence 0.5 or above are red, lower ones orange</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/aoi-api.jpg" width="1013" height="420" loading="lazy" alt="JSON returned by the Web API: inspection ID, verdict, model version, inference time, and each detected object’s class, score and coordinates">
+          <figcaption>JSON returned by the Web API: verdict, inference time, and each object’s class, score and coordinates</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>AOI image inspection integration POC</h3>
+        <p>Validates the whole flow: a capture program sends an image, an ASP.NET Core Web API receives it, a Python inference service reads it, and the result comes back. The inference service is built on YOLOv8 and returns each object’s class, confidence score and coordinates; the Web API then applies a threshold to give an NG or OK verdict and outputs JSON, ready to feed a database, an electronic signboard or an MES. Single-image inference took about 40 to 70 ms in local tests.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>ASP.NET Core Web API, Python (FastAPI), YOLOv8n</dd>
+          <dt>Status</dt><dd>Proof of concept. It uses a general pre-trained model and a public sample image, not real production defect images, and the verdict rule is for demonstration</dd>
+          <dt>Next</dt><dd>Containerized deployment with Docker Compose, and integration with SQL Server, signboards and an MES</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/solar-dashboard.jpg" width="1595" height="771" loading="lazy" alt="Left: the architecture, from solar equipment over MQTT to an ASP.NET Core service and then SignalR to a dashboard. Right: the live dashboard showing current total power, today’s yield, irradiance and a power trend chart">
+          <figcaption>Left: the architecture. Right: the live dashboard, with values and trend chart updating in real time</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/solar-publisher.jpg" width="1271" height="360" loading="lazy" alt="A simulated device program publishing an inverter’s total power, daily yield and irradiance over MQTT every few seconds">
+          <figcaption>Device side (simulated): publishes inverter data over MQTT every few seconds</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/solar-subscriber.jpg" width="1271" height="457" loading="lazy" alt="Log of the ASP.NET Core service receiving an MQTT message and writing it to the database with EF Core">
+          <figcaption>Server side: receives each MQTT message and writes it to the database with EF Core</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Solar plant real-time monitoring POC</h3>
+        <p>Simulates a solar inverter sending power data every few seconds (total power, daily yield, irradiance). An ASP.NET Core service subscribes to the MQTT messages and writes them to the database, then pushes them to a web dashboard in real time, showing current power, today’s yield and the power trend. It is a complete example of bringing industrial equipment data into an enterprise system.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>ASP.NET Core, MQTT, SignalR, EF Core, SQL Server, Vue 3</dd>
+          <dt>Status</dt><dd>Proof of concept. The device side is simulated by a program; no real inverter or PLC is connected yet</dd>
+          <dt>Next</dt><dd>Historical data queries, and connecting real equipment</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-next.jpg" width="1400" height="630" loading="lazy" alt="Taiwan stock revenue radar (Next.js version): filter by industry and revenue growth, with monthly revenue and share price and EPS charts"></a>
+          <figcaption>Next.js version, no login required</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="https://vue-stock-tw-web.vercel.app/" target="_blank" rel="noopener"><img src="assets/stock-vue.jpg" width="1400" height="649" loading="lazy" alt="Taiwan stock analysis (Vue version): filter by revenue growth, gross margin and operating margin, with quarterly share price, EPS and margin charts"></a>
+          <figcaption>Vue version, Google sign-in required</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Taiwan stock revenue and financials analysis</h3>
+        <p>Filter listed Taiwanese stocks by industry, revenue growth, gross margin and operating margin, and compare monthly revenue, quarterly share price and EPS in charts. I built the same idea twice, once with Next.js and once with Vue; the data lives in Supabase and both are deployed on Vercel.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>Next.js, Vue, Supabase, Vercel</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://next-stock-tw.vercel.app/" target="_blank" rel="noopener">Open the Next.js version</a></li>
+          <li><a href="https://vue-stock-tw-web.vercel.app/" target="_blank" rel="noopener">Open the Vue version</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://ml-roe-clustering.streamlit.app/" target="_blank" rel="noopener"><img src="assets/ml-clustering.jpg" width="1400" height="641" loading="lazy" alt="Taiwan stock clustering: a table of K-Means cluster profiles and a radar chart, with PCA and cluster-count settings on the left"></a>
+          <figcaption>K-Means cluster profiles and a radar chart</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Taiwan stock clustering (machine learning)</h3>
+        <p>Groups listed companies by financial profile using K-Means and PCA. You can pick an industry, set the number of principal components and clusters by hand, and compare each cluster on a radar chart. A second Python AI financial-analysis app is deployed on Streamlit as well.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>Python, machine learning (clustering), LangChain / LangGraph, Google Gemini, Streamlit</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://ml-roe-clustering.streamlit.app/" target="_blank" rel="noopener">Open the clustering tool</a></li>
+          <li><a href="https://ml-clustering-app.streamlit.app/" target="_blank" rel="noopener">Open the second app</a></li>
+          <li><a href="https://youtu.be/PGBOx7fMFh8" target="_blank" rel="noopener">Watch the demo video</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://www.youtube.com/watch?v=SanblbOU7BM" target="_blank" rel="noopener"><img src="assets/blazor.jpg" width="1175" height="584" loading="lazy" alt="A Blazor WASM and ASP.NET Core Web API master-detail example: editing a product and uploading images on the left, the product list on the right"></a>
+          <figcaption>A master-detail example: edit a product, upload images, and see the list update</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Blazor WASM and Web API</h3>
+        <p>Blazor WebAssembly on the front end and an ASP.NET Core Web API on the back end, with JWT authentication and uploaded images stored in a database through EF Core. I built it as a complete example to get the full-stack .NET approach straight in my own head.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>Blazor WASM, ASP.NET Core Web API, JWT, EF Core, MS SQL</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://www.youtube.com/watch?v=SanblbOU7BM" target="_blank" rel="noopener">Demo video 1</a></li>
+          <li><a href="https://youtu.be/6TH3Klkapfg" target="_blank" rel="noopener">Demo video 2</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <a href="https://youtu.be/6wn2Qa8JGuc" target="_blank" rel="noopener"><img src="assets/golf.jpg" width="690" height="390" loading="lazy" alt="The Golf GPS Scorecard store page on Google Play, with app screenshots"></a>
+          <figcaption>The Golf GPS Scorecard page on Google Play</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Golf GPS Scorecard (Android / iOS)</h3>
+        <p>A golf GPS scoring app I developed independently between 2013 and 2018, combining a map with scorekeeping, published on Google Play. I handled everything myself, from requirements and design through release.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>Java, Android SDK, SQLite, Google Map SDK, Objective-C (iOS)</dd>
+        </dl>
+        <ul class="links">
+          <li><a href="https://youtu.be/6wn2Qa8JGuc" target="_blank" rel="noopener">Demo video 1</a></li>
+          <li><a href="https://youtu.be/-y-pC5m5AGI" target="_blank" rel="noopener">Demo video 2</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="enterprise" aria-labelledby="ent-title">
+  <div class="wrap">
+    <h2 id="ent-title">Enterprise system projects</h2>
+    <p class="lead">Systems I analyzed, designed and built between 2018 and 2021 at Long Hui Helmets (隆輝安全帽), covering both Taiwan and Vietnam. Screens are for illustration only, and figures have been blurred.</p>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-bi.jpg" width="750" height="391" loading="lazy" alt="Business intelligence website: gauges, pie charts and bar charts showing year-to-date growth and sales, with the table figures blurred">
+          <figcaption>Business intelligence website (table figures blurred)</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Business intelligence website (BI Web)</h3>
+        <p>Combined work orders from Taiwan and Vietnam, the Vietnam inventory and sales system, and the data of two ERPs (Ai Yi and Tian Xin), so senior management could see integrated production and sales figures on one screen.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>ASP.NET Core MVC, JavaScript, AJAX, Google Chart, jQuery, MS SQL</dd>
+          <dt>Sources</dt><dd>Ai Yi ERP, Tian Xin ERP, Vietnam inventory and sales system, work orders from both sites</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-zeus2d.jpg" width="628" height="586" loading="lazy" alt="Zeus2D export e-commerce site: helmet decal designs filterable by design status, manufacture type, year, color, style and designer, with a shopping cart">
+          <figcaption>Export e-commerce site: filter designs by many criteria and add them to a cart</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Export e-commerce website</h3>
+        <p>Lets overseas customers browse helmet decal designs, filter them by style, year, color and designer, and add items to a cart. The back end connects to the company’s ERP data.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>ASP.NET Core MVC, EF Core, JavaScript, AJAX, jQuery, MS SQL</dd>
+        </dl>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="work-media">
+        <figure class="shot">
+          <img src="assets/ent-mold-form.jpg" width="876" height="484" loading="lazy" alt="WinForm interface of the mold management system, with a print preview on the right">
+          <figcaption>WinForm interface and print preview</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/ent-mold-card.jpg" width="516" height="301" loading="lazy" alt="A mold history card report produced by the system">
+          <figcaption>A mold history card produced by the system</figcaption>
+        </figure>
+      </div>
+      <div class="work-body">
+        <h3>Mold and tooling management system</h3>
+        <p>Manages the history, status and documents of molds and tooling, and prints reports such as the mold history card. In the same period I also built the design engineering change system (ECR/ECN) so that change requests follow one consistent process.</p>
+        <dl class="facts">
+          <dt>Tech</dt><dd>WinForm, WebForm, VB.NET, MS SQL</dd>
+        </dl>
+        <p>Also delivered in the same period: product association analysis (association rule mining) and customer clustering, and synchronization and backup of the Taiwan and Vietnam databases.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <h2 id="skills-title">Skills</h2>
+    <p class="lead">Mainly .NET and data, with AI applications added over the past year or two.</p>
+    <dl class="skills">
+      <dt>Back end and integration</dt>
+      <dd>C#, ASP.NET Core (MVC, Web API, BFF architecture), Blazor, EF Core; VB.NET, Java, Python</dd>
+      <dt>Data and business intelligence</dt>
+      <dd>SQL Server, Oracle, PostgreSQL, Sybase, DB2; data warehousing, ETL, dimensional modeling, BI reporting; index and stored-procedure tuning</dd>
+      <dt>AI applications</dt>
+      <dd>Ollama local models, Google Gemini, LangChain / LangGraph, RAG knowledge bases, a self-built .NET MCP server</dd>
+      <dt>Front end</dt>
+      <dd>Vue 3, React and Next.js, Razor, jQuery, JavaScript</dd>
+      <dt>Deployment and tools</dt>
+      <dd>Docker, Git and GitHub, Vercel, Supabase, AWS, Streamlit</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="exp-title">
+  <div class="wrap">
+    <h2 id="exp-title">Experience</h2>
+    <p class="lead">From data warehousing and ERP integration to AI applications, the common thread is connecting systems.</p>
+    <ol class="timeline">
+      <li>
+        <div class="when">Dec 2025 – Nov 2026</div>
+        <div><h3>De Yi Digital Technology (德誼數位科技)</h3>
+        <p>New features and maintenance for internal enterprise systems, using ASP.NET Core MVC with a Controller API (BFF architecture); the databases are Oracle and SQL Server.</p></div>
+      </li>
+      <li>
+        <div class="when">May – Aug 2025</div>
+        <div><h3>Chuan Chu Yun Gou (全渠運購), cross-border e-commerce CWOW</h3>
+        <p>Tuned database indexes and wrote PostgreSQL stored procedures for the e-commerce back end, and built a RAG knowledge base with Ollama and a Discord bot.</p></div>
+      </li>
+      <li>
+        <div class="when">Nov 2024 – May 2025</div>
+        <div><h3>Hua Wei Digital Fintech (華威數位財金), SinoPac Trust project</h3>
+        <p>Web system development for the financial sector, using ASP.NET WebForm, SQL Server stored procedures and Crystal Report.</p></div>
+      </li>
+      <li>
+        <div class="when">2021 – 2024</div>
+        <div><h3>Independent development and research</h3>
+        <p>Built a complete Blazor WASM and Web API example, including JWT authentication, image upload and database access with EF Core.</p></div>
+      </li>
+      <li>
+        <div class="when">May 2018 – Apr 2021</div>
+        <div><h3>Long Hui Helmets (隆輝安全帽): Senior IT Manager</h3>
+        <p>Led a cross-border IT team across Taiwan and Vietnam. Built the business intelligence website that combines work orders from both sites, the Vietnam inventory and sales system and the data of two ERPs, giving management a complete view of production and sales. Also delivered the export e-commerce site, mold and tooling management, the design engineering change system (ECR/ECN), customer clustering and product association analysis, and synchronization and backup of the Taiwan and Vietnam databases.</p></div>
+      </li>
+      <li>
+        <div class="when">May 2013 – Apr 2018</div>
+        <div><h3>Independent mobile app development</h3>
+        <p>Developed Android and iOS apps, including Golf GPS Scorecard.</p></div>
+      </li>
+      <li>
+        <div class="when">May 2005 – Apr 2013</div>
+        <div><h3>Nan Shan Life Insurance (南山人壽)</h3>
+        <p>A sales-agent performance system (Java, Struts, Hibernate, Sybase, WebSphere) and data warehouse ETL (DataStage, Cognos).</p></div>
+      </li>
+      <li>
+        <div class="when">Feb 2003 – Mar 2005</div>
+        <div><h3>Eastern Home Shopping (東森得易購)</h3>
+        <p>As project manager, led the team and vendors to build a data warehouse, covering hardware and software architecture, requirements analysis, the staging area, dimensional modeling and ETL development.</p></div>
+      </li>
+      <li>
+        <div class="when">Feb 2001 – Mar 2003</div>
+        <div><h3>Dun Yang Technology (敦陽科技)</h3>
+        <p>Worked on government electronic document exchange and gateway systems, and reorganized the tablespaces of an Oracle database.</p></div>
+      </li>
+    </ol>
+    <p class="lead" style="margin-top:2rem;margin-bottom:0">Education: M.S. in Information Management, National Chengchi University; B.S., Tatung University.</p>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title" hidden>
+  <div class="wrap">
+    <h2 id="contact-title">Contact</h2>
+    <p class="lead">If you’d like to talk about systems integration or adopting AI, feel free to email me.</p>
+    <ul class="contact-list" id="contact-list"></ul>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">© 2026 Andrew Wang (王精顯)</div>
+</footer>
+
+<script>
+  // 在這裡填入聯絡方式；留空的項目不會顯示，全部留空則整個聯絡區塊隱藏。
+  const CONTACT = {
+    email: "AndrewWang1TW@gmail.com",
+    linkedin: "",   // 例如 "https://www.linkedin.com/in/你的帳號"
+    github: "https://github.com/andrewwang1tw"
+  };
+
+  (function () {
+    const items = [];
+    if (CONTACT.email) items.push(['Email', 'mailto:' + CONTACT.email, CONTACT.email]);
+    if (CONTACT.linkedin) items.push(['LinkedIn', CONTACT.linkedin, 'LinkedIn']);
+    if (CONTACT.github) items.push(['GitHub', CONTACT.github, 'GitHub']);
+    if (!items.length) return;
+    const list = document.getElementById('contact-list');
+    items.forEach(function (it) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = it[1]; a.textContent = it[2];
+      if (it[1].indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+      li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById('contact').hidden = false;
+    document.getElementById('nav-contact').hidden = false;
+    document.getElementById('hero-contact').hidden = false;
+  })();
+</script>
+</body>
+</html>
